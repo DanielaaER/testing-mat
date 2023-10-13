@@ -1,0 +1,22 @@
+name: develop CI, CD Workflow
+on: 
+  push:
+    branches: [ "develop"]
+  pull_request:
+    branches: [ "develop"]
+jobs:
+  develop_ci_cd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18.x
+
+      - name: Setup
+        run: npm ci
+
+      - name: Test
+        run: |
+          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
