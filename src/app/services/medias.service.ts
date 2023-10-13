@@ -22,14 +22,5 @@ export class MediasService {
       map(response => response.data)
     );
   }
-  calcularMedia(data: number[]): number {
-    return data.reduce((acc, val) => acc + val, 0) / data.length;
-  }
-
-  calcularDesviacionEstandar(data: number[], mean: number): number {
-    const squaredDifferences = data.map(val => Math.pow(val - mean, 2));
-    const meanOfSquaredDifferences = this.calcularMedia(squaredDifferences);
-    const stdDev = Math.sqrt(meanOfSquaredDifferences);
-    return stdDev;
-  }
+ 
 }

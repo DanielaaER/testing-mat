@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StddevComponent } from './stddev.component';
 import { MediasService } from '../services/medias.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MediaComponent } from '../media/media.component';
 
 describe('StddevComponent', () => {
   let component: StddevComponent;
@@ -10,7 +11,7 @@ describe('StddevComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [MediasService],
+      providers: [MediasService, MediaComponent],
       declarations: [StddevComponent],
       imports: [HttpClientModule]
     });

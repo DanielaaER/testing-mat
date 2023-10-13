@@ -11,14 +11,17 @@ export class MediaComponent implements OnInit {
   proxySizeAverage = 0;
 
   constructor(private MediasService: MediasService) { }
+  calcularMedia(data: number[]): number {
+    return data.reduce((acc, val) => acc + val, 0) / data.length;
+  }
 
   ngOnInit(): void {
     this.MediasService.getDevHours().subscribe(data => {
-      this.devHoursAverage = this.MediasService.calcularMedia(data);
+      this.devHoursAverage = this.calcularMedia(data);
     });
 
     this.MediasService.getProxySize().subscribe(data => {
-      this.proxySizeAverage = this.MediasService.calcularMedia(data);
+      this.proxySizeAverage = this.calcularMedia(data);
     });
   }
 }
