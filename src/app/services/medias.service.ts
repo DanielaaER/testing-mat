@@ -6,8 +6,8 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class MediasService {
-  private apiURLProxySize = 'https://apidefinitiva-cv-service-jazaelog.cloud.okteto.net/columna1';
-  private apiUrlDevHours = 'https://apidefinitiva-cv-service-jazaelog.cloud.okteto.net/columna2';
+  private apiURLProxySize = 'https://api-node-service-danielaaer.cloud.okteto.net/proxy';
+  private apiUrlDevHours = 'https://api-node-service-danielaaer.cloud.okteto.net/dev';
 
   constructor(private http: HttpClient) { }
 
