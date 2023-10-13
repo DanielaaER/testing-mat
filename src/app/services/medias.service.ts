@@ -22,5 +22,5 @@ export class MediasService {
       map(response => response.data)
     );
   }
-  
+ 
 }
