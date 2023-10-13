@@ -15,7 +15,10 @@ jobs:
           node-version: 16.x
 
       - name: Setup
-        run: npm ci
+        run: npm install
+
+      - name: Karma
+        run: npm install karma-chrome-launcher --save-dev
 
       - name: Test
         run: |
