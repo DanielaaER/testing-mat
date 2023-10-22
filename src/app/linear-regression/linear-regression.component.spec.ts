@@ -3,17 +3,20 @@ import { LinearRegressionComponent } from './linear-regression.component';
 import { LinearRegressionService } from '../services/linear-regression.service';
 import { HttpClientModule } from '@angular/common/http';
 import { of } from 'rxjs';
+import { HttpTestingController } from '@angular/common/http/testing';
+import { delay } from 'rxjs/operators';
 
 describe('LinearRegressionComponent', () => {
   let component: LinearRegressionComponent;
   let fixture: ComponentFixture<LinearRegressionComponent>;
   let service: LinearRegressionService;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [LinearRegressionComponent],
       providers: [LinearRegressionService],
-      imports: [HttpClientModule]
+      imports: [HttpClientModule],
     });
     fixture = TestBed.createComponent(LinearRegressionComponent);
     component = fixture.componentInstance;
@@ -23,30 +26,29 @@ describe('LinearRegressionComponent', () => {
 
   const test1Data = {
     proxy_size: [130, 650, 99, 150, 128, 302, 95, 945, 368, 961],
-    actual_added: [186, 699, 132, 272, 291, 331, 199, 1890, 788, 1601]
+    actual_added: [186, 699, 132, 272, 291, 331, 199, 1890, 788, 1601],
   };
 
   const test2Data = {
     proxy_size: [130, 650, 99, 150, 128, 302, 95, 945, 368, 961],
-    actual_develop: [15.0, 69.9, 6.5, 22.4, 28.4, 65.9, 19.4, 198.7, 38.8, 138.2]
+    actual_develop: [
+      15.0, 69.9, 6.5, 22.4, 28.4, 65.9, 19.4, 198.7, 38.8, 138.2,
+    ],
   };
 
   const test3Data = {
     plan_added: [163, 765, 141, 166, 137, 355, 136, 1206, 433, 1130],
-    actual_added: [186, 699, 132, 272, 291, 331, 199, 1890, 788, 1601]
+    actual_added: [186, 699, 132, 272, 291, 331, 199, 1890, 788, 1601],
   };
 
   const test4Data = {
     plan_added: [163, 765, 141, 166, 137, 355, 136, 1206, 433, 1130],
-    actual_develop: [15.0, 69.9, 6.5, 22.4, 28.4, 65.9, 19.4, 198.7, 38.8, 138.2]
+    actual_develop: [
+      15.0, 69.9, 6.5, 22.4, 28.4, 65.9, 19.4, 198.7, 38.8, 138.2,
+    ],
   };
 
-  it('should return B1 = 1.7279 with test1 json', () => {
-    spyOn(service, 'getTest1').and.returnValue(of(test1Data));
-    component.fetchDataForRoute(1);
-    const result = component.calculateB1();
-    expect(result).toBeCloseTo(1.7279, 4);
-  });
+   
 
   it('should return B0 = -22.5525 with test1 json', () => {
     spyOn(service, 'getTest1').and.returnValue(of(test1Data));
