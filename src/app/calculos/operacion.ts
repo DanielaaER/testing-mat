@@ -1,65 +1,70 @@
 export class Calculate {
-
-    sumX(lista: number[]): number {
-        var sum = 0;
-        console.log(lista);
-        for (let i = 0; i < lista.length; i++) {
-            sum += lista[i];
-        }
-
-        return sum;
+  sumX(lista: number[]): number {
+    var sum = 0;
+    console.log(lista);
+    for (let i = 0; i < lista.length; i++) {
+      sum += lista[i];
     }
 
-    sumXX(lista: number[]): number {
-        var sum = 0;
+    return sum;
+  }
 
-        for (let i = 0; i < lista.length; i++) {
-            sum += lista[i] * lista[i];
-        }
+  sumXX(lista: number[]): number {
+    var sum = 0;
 
-        return sum;
+    for (let i = 0; i < lista.length; i++) {
+      sum += lista[i] * lista[i];
     }
 
-    sumXY(listaX: number[], listaY: number[]): number {
-        var sum = 0;
+    return sum;
+  }
 
-        for (let i = 0; i < listaX.length; i++) {
-            sum += listaX[i] * listaY[i];
-        }
+  sumXY(listaX: number[], listaY: number[]): number {
+    var sum = 0;
 
-        return sum;
+    for (let i = 0; i < listaX.length; i++) {
+      sum += listaX[i] * listaY[i];
     }
 
-    calculateB1(sumXY: number, sumX: number, sumY: number, sumXX: number, n: number): number {
-        var b1 = 0;
+    return sum;
+  }
 
-        b1 = ((n * sumXY) - (sumX * sumY)) / ((n * sumXX) - (sumX * sumX));
+  calculateB1(
+    sumXY: number,
+    sumX: number,
+    sumY: number,
+    sumXX: number,
+    n: number
+  ): number {
+    var b1 = 0;
 
-        return b1;
-    }
+    b1 = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
 
-    calculateB0(sumX: number, sumY: number, b1: number, n: number): number {
-        var b0 = 0;
+    return b1;
+  }
 
-        b0 = (sumY - (b1 * sumX)) / n;
+  calculateB0(sumX: number, sumY: number, b1: number, n: number): number {
+    var b0 = 0;
 
-        return b0;
-    }
+    b0 = (sumY - b1 * sumX) / n;
 
-    calculateY(b0: number, b1: number, x: number): number {
-        var y = 0;
+    return b0;
+  }
 
-        y = b0 + (b1 * x);
+  calculateY(b0: number, b1: number, x: number): number {
+    var y = 0;
 
-        return y;
-    }
+    y = b0 + b1 * x;
 
-    calculateMedia(lista: number[]): number {
-        var media = 0;
-        var sum = this.sumX(lista);
+    return y;
+  }
 
-        media = sum / lista.length;
+  calculateMedia(lista: number[]): number {
+    var media = 0;
+    var sum = this.sumX(lista);
 
-        return media;
-    }
+    media = sum / lista.length;
+
+    return media;
+  }
 }
