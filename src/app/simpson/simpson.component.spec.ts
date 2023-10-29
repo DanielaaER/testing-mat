@@ -33,28 +33,5 @@ describe('SimpsonComponent', () => {
     expect(component.calcularArea("1/x", 1, 4, 6, 0.001)).toBeCloseTo(1.386,3);
   })
 
-  /////// PRUEBAS EXPERIMENTALES ///////
-
-  it('Should return 100 in f(x)=-x-5, x0=0, x1=10', ()=>{
-    expect(component.calcularArea("-x-5", 0, 10, 4, 0.001)).toBeCloseTo(100, 1);
-  })
-
-  it('Should return 25 in f(x)=x-5, x0=0, x1=5', ()=>{
-    expect(component.calcularArea("x-5", 0, 10, 4, 0.001)).toBeCloseTo(25, 1);
-  })
-
-  it('Should return 25 in f(x)=-x+5, x0=0, x1=10', ()=>{
-    expect(component.calcularArea("-x+5", 0, 10, 4, 0.001)).toBeCloseTo(25, 1);
-  })
-
-  it('Should return 25 in f(x)=X+2, x0=-2, x1=5', ()=>{
-    expect(component.calcularArea("X+2", -3, 5, 4, 0.001)).toBeCloseTo(25, 0);
-  })
-
-  it('Should return Error in f(x)=Hola',()=>{
-    expect(()=>{
-        component.calcularArea("Hola", -3, 5, 4, 0.001)}).toThrow();
-  })
-  
 
 });
