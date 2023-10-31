@@ -19,7 +19,6 @@ describe('SimpsonComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  ////// PRUEBAS DE ISSUES /////
 
   it('Should return 16 if f(x)=2x, x0=1 x1=4', ()=>{
     expect(component.calcularArea('2x', 0, 4, 4, 0.00001)).toBeCloseTo(16.0,1);
