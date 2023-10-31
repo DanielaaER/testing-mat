@@ -8,39 +8,36 @@ import { Calculate } from '../calculos/operacion';
   styleUrls: ['./simpson.component.css'],
 })
 export class SimpsonComponent {
-  // Inyecta el servicio SimpsonService y la clase Calculate en el constructor
-  constructor(private simpsonService: SimpsonService, private calculator: Calculate) {}
 
+  calculate = new Calculate();
   calcularArea(fx: any, x0: number, x1: number, seg: number, error: number): any {
-    let previousResult = 0;
-    let currentResult = 0;
-    let iterations = 1;
-
-    while (previousResult === 0 || currentResult - previousResult > error || currentResult === 0) {
-      if (iterations === 1) {
-        currentResult = this.simpsonIntegration(seg, fx, x0, x1);
+    
+    let a1 = 0;
+    let a2 = 0;
+    let c = 1;
+    while (a1 == 0 || a2 - a1 > error || a2 == 0) {
+      if (c == 1) {
+        a1 = this.simpson(seg, fx, x0, x1);
       } else {
-        if (currentResult !== 0) {
-          previousResult = currentResult;
+        if (a2 != 0) {
+          a1 = a2;
         }
         seg *= 2;
-        currentResult = this.simpsonIntegration(seg, fx, x0, x1);
+        a2 = this.simpson(seg, fx, x0, x1);
       }
-      iterations += 1;
+      c += 1;
     }
-    return currentResult;
+    return a2;
   }
-
-  simpsonIntegration(segmentos: any, fx: any, x0: any, x1: any) {
-    const step = (x1 - x0) / segmentos;
-    let sum = this.calculator.calcularOperacion(fx, x0);
-
+  
+  simpson(segmentos: any, fx: any, x0: any, x1: any) {
+    const w = (x1 - x0) / segmentos;
+    let suma = this.calculate.calcularOperacion(fx, x0);
     for (let i = 1; i < segmentos; i++) {
-      const multiplier = i % 2 === 0 ? 2 : 4;
-      sum += multiplier * this.calculator.calcularOperacion(fx, step * i + x0);
+      const multiplo = i % 2 === 0 ? 2 : 4;
+      suma += multiplo * this.calculate.calcularOperacion(fx, w * i + x0);
     }
-
-    sum += this.calculator.calcularOperacion(fx, x1);
-    return (step / 3) * sum;
+    suma += this.calculate.calcularOperacion(fx, x1);
+    return (w / 3) * suma;
   }
 }
