@@ -8,10 +8,16 @@ import { BehaviorSubject } from 'rxjs/';
   providedIn: 'root',
 })
 export class LinearRegressionService {
-  test1 = 'https://api-node-service-danielaaer.cloud.okteto.net/test1';
-  test2 = 'https://api-node-service-danielaaer.cloud.okteto.net/test2';
-  test3 = 'https://api-node-service-danielaaer.cloud.okteto.net/test3';
-  test4 = 'https://api-node-service-danielaaer.cloud.okteto.net/test4';
+  // test1 = 'https://api-node-service-danielaaer.cloud.okteto.net/test1';
+  // test2 = 'https://api-node-service-danielaaer.cloud.okteto.net/test2';
+  // test3 = 'https://api-node-service-danielaaer.cloud.okteto.net/test3';
+  // test4 = 'https://api-node-service-danielaaer.cloud.okteto.net/test4';
+
+  test1 = 'https://apidefinitiva-cv-service-jazaelog.cloud.okteto.net/test1';
+  test2 = 'https://apidefinitiva-cv-service-jazaelog.cloud.okteto.net/test2';
+  test3 = 'https://apidefinitiva-cv-service-jazaelog.cloud.okteto.net/test3';
+  test4 = 'https://apidefinitiva-cv-service-jazaelog.cloud.okteto.net/test4';
+
 
   constructor(private http: HttpClient) {}
 
