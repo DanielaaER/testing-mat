@@ -36,7 +36,7 @@ describe('SimpsonComponent', () => {
   });
 
   it('Should return 1.38 in f(x)=1/x, x0=1, x1=4', () => {
-    expect(component.calcularArea('1/x', 0, 1, 4, 6, 0.001)).toBeCloseTo(
+    expect(component.calcularArea('1/x', 0, 1, 4, 12, 0.001)).toBeCloseTo(
       1.386,
       3
     );
