@@ -52,23 +52,23 @@ export class SimpsonComponent {
     return (w / 3) * suma;
   }
 
-  gamma(z: number): number {
+  gamma(n: number): number {
     const g = 7;
     const p = [
       0.99999999999980993, 676.5203681218851, -1259.1392167224028,
       771.32342877765313, -176.61502916214059, 12.507343278686905,
       -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7,
     ];
-    if (z < 0.5) {
-      return Math.PI / (Math.sin(Math.PI * z) * this.gamma(1 - z));
+    if (n < 0.5) {
+      return Math.PI / (Math.sin(Math.PI * n) * this.gamma(1 - n));
     } else {
-      z -= 1;
+      n -= 1;
       let x = p[0];
       for (let i = 1; i < g + 2; i++) {
-        x += p[i] / (z + i);
+        x += p[i] / (n + i);
       }
-      let t = z + g + 0.5;
-      return Math.sqrt(2 * Math.PI) * Math.pow(t, z + 0.5) * Math.exp(-t) * x;
+      let t = n + g + 0.5;
+      return Math.sqrt(2 * Math.PI) * Math.pow(t, n + 0.5) * Math.exp(-t) * x;
     }
   }
 
@@ -76,49 +76,45 @@ export class SimpsonComponent {
     //obtener w
     const w = (x1 - x0) / seg;
     const w3 = (x1 - x0) / (3 * seg);
-    let x = [];
-    let p1 = [];
-    let p2 = [];
-    let cons = this.gamma((dof + 1) / 2) / (((dof * Math.PI) ** 0.5) * this.gamma(dof / 2));
+    let x: number[] = [];
+    let p1 = 0;
+    let p2 = 0;
+    const cons =
+      this.gamma((dof + 1) / 2) /
+      ((dof * Math.PI) ** 0.5 * this.gamma(dof / 2));
 
-    let fx = [];
-    let mult = [];
+    let fx = 0;
+    let mult = 1;
     let sum = 0;
     let termino = 0;
-    x[0] = 0;
-    p1[0] = 1;
-    p2[0] = 1;
-    fx[0] = cons * p2[0];
-    mult[0] = 1;
-    termino = mult[0] * fx[0] * w3;
-    
-    console.log(termino);
-    sum = termino;
-    
-    for (let i = 1; i < seg+1; i++) {
-      x[i] = x[i - 1] + w;
-      p1[i] = 1 + x[i] ** 2 / dof;
-      p2[i] = p1[i] ** (((dof + 1) / 2) * -1);
-      fx[i] = cons * p2[i];
-      if (i == seg) {
-        mult[i] = 1;
+
+    for (let i = 0; i < seg + 1; i++) {
+      
+      if (i == 0) {
+        x[i] = x0;
+      } else {
+        x[i] = x[i - 1] + w;
+      }
+      p1 = 1 + x[i] ** 2 / dof;
+      p2 = p1 ** (((dof + 1) / 2) * -1);
+      fx = cons * p2;
+      if (i == seg || i == 0) {
+        mult = 1;
       } else {
         if (i % 2 === 0) {
-          mult[i] = 2;
+          mult = 2;
         } else {
-          mult[i] = 4;
+          mult = 4;
         }
       }
-      termino = mult[i] * fx[i] * w3;
+      termino = mult * fx * w3;
       console.log(termino);
       sum = sum + termino;
     }
-    
+
     return sum;
     // return mult[10] ;
     // return mult[9] * fx[9] * w3;
     // return fx[0];
-
-    
   }
 }
