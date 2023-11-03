@@ -27,7 +27,6 @@ export class SimpsonComponent {
     let sum = 0;
     let termino = 0;
     let ret = 0;
-
     for (let i = 0; i < seg + 1; i++) {
       if (i == 0) {
         x[i] = x0;
@@ -64,19 +63,26 @@ export class SimpsonComponent {
   }
 
   gamma(g: number): number {
-    let n = 1;
     if (Number.isInteger(g) && g >= 0) {
-      for (let i = 1; i < g; i++) {
-        n *= i;
-      }
+      return this.fac(g - 1);
+    }
+    let n = Math.sqrt(Math.PI);
+    return this.gama(g, n);
+  }
+
+  gama(g: number, n: number): number {
+    if (g <= 0.5) {
       return n;
     }
-    n = Math.sqrt(Math.PI);
-    while (g > 0.5) {
-      g--;
-      n *= g;
+    return (g - 1) * this.gama(g - 1, n);
+  }
+
+  fac(g: number): number {
+    if (g === 0) {
+      return 1;
+    } else {
+      return g * this.fac(g - 1);
     }
-    return n;
   }
 
   // tDistribution(x0: any, x1: any, dof: number, seg: number): number {
@@ -215,5 +221,23 @@ export class SimpsonComponent {
   //     let t = n + g + 0.5;
   //     return Math.sqrt(2 * Math.PI) * Math.pow(t, n + 0.5) * Math.exp(-t) * x;
   //   }
+  // }
+
+  //GAMA
+
+  // gamma(g: number): number {
+  //   let n = 1;
+  //   if (Number.isInteger(g) && g >= 0) {
+  //     for (let i = 1; i < g; i++) {
+  //       n *= i;
+  //     }
+  //     return n;
+  //   }
+  //   n = Math.sqrt(Math.PI);
+  //   while (g > 0.5) {
+  //     g--;
+  //     n *= g;
+  //   }
+  //   return n;
   // }
 }

@@ -51,6 +51,8 @@ describe('SimpsonComponent', () => {
   });
   it('should return correct gamma value for 4.5', () => {
     const z = 4.5;
+
+    // let n = Math.sqrt(Math.PI);
     const result = component.gamma(z);
     expect(result).toBeCloseTo(11.63);
   });
