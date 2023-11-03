@@ -72,7 +72,7 @@ export class SimpsonComponent {
 
   gama(g: number, n: number): number {
     if (g <= 0.5) {
-      return n;
+      return n ;
     }
     return (g - 1) * this.gama(g - 1, n);
   }
