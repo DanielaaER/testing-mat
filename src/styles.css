@@ -22,6 +22,13 @@ h3 {
   margin-left: 35px;
 }
 
+h4 {
+    font-size: 25px;
+    background-color: transparent;
+    font-weight: lighter;
+    margin: 0;
+  }
+  
 p {
   font-size: 25px;
   background-color: transparent;
@@ -41,6 +48,16 @@ p {
   flex-direction: row;
   margin-left: auto;
   margin-right: auto;
+}
+
+.row-option {
+  width: 90%;
+
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
 }
 
 .title {
@@ -77,8 +94,31 @@ p {
   border: 0.96px solid #bdbdbd;
   background: #fff;
   width: 45%;
+  height: 50px;
 }
 
+.resultados {
+    display: flex;
+    padding: 3.841px 12.363px 11.522px 12.363px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px;
+    border: 0.96px solid #bdbdbd;
+    background: #fff;
+    width: 90%;
+    height: 50px;
+  }
+.send-button {
+  width: 200px;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+  margin-top: 0;
+  height: 67px;
+  border-radius: 10px;
+  border: 0.96px solid #bdbdbd;
+  background: #fff;
+}
 .menu {
   display: flex;
   flex-direction: column;
@@ -88,4 +128,25 @@ p {
   background-color: #fff;
   border: 0;
   border-bottom: #bdbdbd solid 1px;
+  font-size: 25px;
+}
+input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* gap: 10px; */
+  width: 100%;
+  background-color: #fff;
+  border: 0;
+  border-bottom: #bdbdbd solid 1px;
+  font-size: 25px; /* Set the font size to 25px */
+  text-size-adjust: 25px;
+}
+
+.text-button {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7.682px;
+  width: 100%;
 }

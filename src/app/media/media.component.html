@@ -1,1 +1,56 @@
-<p>media works!</p>
+<div class="container">
+  <div class="row">
+    <div class="title">
+      <h1>1A</h1>
+      <h2>Daniela Espinosa Rojas</h2>
+    </div>
+    <div class="operation">
+      <h3><strong>Calcular</strong></h3>
+      <h3>X</h3>
+
+      <div class="row-option">
+        <div class="opciones">
+          <input
+            id="x"
+            [(ngModel)]="x"
+            type="text"
+            class="menu"
+            placeholder="X"
+          />
+        </div>
+        <Button class="send-button agregar-button" (click)="agregar()"
+          ><p>Agregar</p></Button
+        >
+      </div>
+
+      <h3 class="x">{{ myx }}</h3>
+
+      <div class="row-option">
+        <div class="text-button">
+          <Button class="send-button media-button" (click)="media()"
+            ><p>Media</p></Button
+          >
+
+          <br />
+
+          <Button class="send-button desviacion-button" (click)="desviacion()"
+            ><p>Desviacion</p></Button
+          >
+        </div>
+        <div class="text-button">
+          <h4>Resultado</h4>
+          <div class="resultados">
+            <input
+              id="result"
+              [(ngModel)]="result"
+              type="text"
+              class="menu"
+              placeholder="result"
+              [disabled]="true"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
