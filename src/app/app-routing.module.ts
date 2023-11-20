@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { A1Component } from './a1/a1.component';
+import { MediaComponent } from './media/media.component';
 import { MenuComponent } from './menu/menu.component';
 
 const routes: Routes = [
-  { path: 'a1', component: A1Component },
+  { path: 'a1', component: MediaComponent },
+  { path: 'a2', component: MediaComponent },
+  { path: 'a3', component: MediaComponent },
   { path: '', redirectTo: '/menu', pathMatch: 'full' },
   { path: '**', component: MenuComponent }
 ];

@@ -59,8 +59,6 @@ export class LinearRegressionComponent implements OnInit {
           this.handleDataResponse(data);
         });
         break;
-      default:
-        console.error('Número de ruta no válido');
     }
   }
   handleDataResponse(data: any): void {
