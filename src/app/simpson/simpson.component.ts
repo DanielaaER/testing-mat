@@ -22,10 +22,8 @@ export class SimpsonComponent {
     const w = (x1 - x0) / seg;
     const w3 = (x1 - x0) / (3 * seg);
     let x: number[] = [];
-
     let mult = 1;
     let sum = 0;
-    let termino = 0;
     let ret = 0;
     for (let i = 0; i < seg + 1; i++) {
       if (i == 0) {
@@ -33,20 +31,14 @@ export class SimpsonComponent {
       } else {
         x[i] = x[i - 1] + w;
       }
-
       if (fx == 't') {
-        const p1 = 1 + x[i] ** 2 / dof;
-        const p2 = p1 ** (((dof + 1) / 2) * -1);
-
-        const cons =
-          this.gamma((dof + 1) / 2) /
-          ((dof * Math.PI) ** 0.5 * this.gamma(dof / 2));
-        let fx = cons * p2;
-        ret = fx;
+        ret =
+          (this.gamma((dof + 1) / 2) /
+            ((dof * Math.PI) ** 0.5 * this.gamma(dof / 2))) *
+          (1 + x[i] ** 2 / dof) ** (((dof + 1) / 2) * -1);
       } else {
         ret = this.calculate.calcularOperacion(fx, x[i]);
       }
-
       if (i == seg || i == 0) {
         mult = 1;
       } else {
@@ -56,8 +48,7 @@ export class SimpsonComponent {
           mult = 4;
         }
       }
-      termino = mult * ret * w3;
-      sum += termino;
+      sum += mult * ret * w3;
     }
     return sum;
   }
@@ -72,7 +63,7 @@ export class SimpsonComponent {
 
   gama(g: number, n: number): number {
     if (g <= 0.5) {
-      return n ;
+      return n;
     }
     return (g - 1) * this.gama(g - 1, n);
   }
@@ -84,6 +75,54 @@ export class SimpsonComponent {
       return g * this.fac(g - 1);
     }
   }
+
+  // calcularArea(
+  //   fx: any,
+  //   dof: number,
+  //   x0: number,
+  //   x1: number,
+  //   seg: number,
+  //   error: number
+  // ): any {
+  //   const w = (x1 - x0) / seg;
+  //   const w3 = (x1 - x0) / (3 * seg);
+  //   let x: number[] = [];
+
+  //   let mult = 1;
+  //   let sum = 0;
+  //   let termino = 0;
+  //   let ret = 0;
+  //   for (let i = 0; i < seg + 1; i++) {
+  //     if (i == 0) {
+  //       x[i] = x0;
+  //     } else {
+  //       x[i] = x[i - 1] + w;
+  //     }
+  //     if (fx == 't') {
+  //       const p1 = 1 + x[i] ** 2 / dof;
+  //       const p2 = p1 ** (((dof + 1) / 2) * -1);
+  //       const cons =
+  //         this.gamma((dof + 1) / 2) /
+  //         ((dof * Math.PI) ** 0.5 * this.gamma(dof / 2));
+  //       let fx = cons * p2;
+  //       ret = fx;
+  //     } else {
+  //       ret = this.calculate.calcularOperacion(fx, x[i]);
+  //     }
+  //     if (i == seg || i == 0) {
+  //       mult = 1;
+  //     } else {
+  //       if (i % 2 === 0) {
+  //         mult = 2;
+  //       } else {
+  //         mult = 4;
+  //       }
+  //     }
+  //     termino = mult * ret * w3;
+  //     sum += termino;
+  //   }
+  //   return sum;
+  // }
 
   // tDistribution(x0: any, x1: any, dof: number, seg: number): number {
   //   //obtener w
