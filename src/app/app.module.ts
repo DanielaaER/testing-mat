@@ -9,7 +9,6 @@ import { StddevComponent } from './stddev/stddev.component';
 import { LinearRegressionComponent } from './linear-regression/linear-regression.component';
 import { CorrelationComponent } from './correlation/correlation.component';
 import { SimpsonComponent } from './simpson/simpson.component';
-import { A1Component } from './a1/a1.component';
 import { MenuComponent } from './menu/menu.component';
 
   
@@ -21,7 +20,6 @@ import { MenuComponent } from './menu/menu.component';
     LinearRegressionComponent,
     CorrelationComponent,
     SimpsonComponent,
-    A1Component,
     MenuComponent
   ],
   imports: [

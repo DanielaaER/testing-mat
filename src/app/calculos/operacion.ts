@@ -71,12 +71,8 @@ export class Calculate {
   }
 
   calcularOperacion(operacion: string, x: number) {
-    try {
-      const scope = { x: x, X: x };
-      const resultado = evaluate(operacion, scope);
-      return resultado;
-    } catch (error) {
-      throw error;
-    }
+    const scope = { x: x, X: x };
+    const resultado = evaluate(operacion, scope);
+    return resultado;
   }
 }
