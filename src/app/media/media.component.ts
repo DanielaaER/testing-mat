@@ -11,9 +11,6 @@ export class MediaComponent implements OnInit {
   constructor(private MediasService: MediasService) {}
 
   calcularMedia(data: number[]): number {
-    if (!data) {
-      return 0;
-    }
     return data.reduce((acc, val) => acc + val, 0) / data.length;
   }
   proxySizeStdDev: number = 0;
@@ -70,16 +67,12 @@ export class MediaComponent implements OnInit {
 
   media() {
     const numbers = this.myx.map(Number);
-
-    console.log(numbers);
     const mean = this.calcularMedia(numbers);
-    console.log(mean);
     this.result = mean;
   }
 
   desviacion() {
     const numbers = this.myx.map(Number);
-    console.log(numbers);
     const mean = this.calcularMedia(numbers);
     const result = this.calcularDesviacionEstandar(numbers, mean);
     this.result = result;

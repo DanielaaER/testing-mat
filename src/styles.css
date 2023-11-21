@@ -68,7 +68,7 @@ p {
 
 .operation {
   width: 55%;
-  height: 500px;
+  height: auto;
   border: 1px dashed grey;
   border-style: dashed;
   border-width: 2px;
@@ -83,6 +83,7 @@ p {
     1;
   padding: 25px;
   gap: 30px;
+  margin-bottom: 10%;
 }
 
 .opciones {
