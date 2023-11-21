@@ -1,25 +1,25 @@
-name: develop_ci_cd
+name: release_ci_cd
 on: 
   push:
-    branches: [ "develop"]
+    branches: [ "release"]
   pull_request:
-    branches: [ "develop"]
+    branches: [ "release"]
 jobs:
-  develop_ci_cd:
+  release_ci_cd:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 16.x
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
 
       - name: Setup
-        run: npm install
+        run: npm ci
 
       - name: Test
         run: |
-            npm run test-headless 
+          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       
       - name: build react
         run: npm run build
@@ -27,9 +27,7 @@ jobs:
       - name: download, run httpd image, container name serving_base
         run: |
           docker run -d --name serving_base httpd
-      - name: List contents of dist directory
-        run: |
-          ls -l dist/testing-mat/
+          
       - name: Copy React build to container
         run: |
          docker cp dist/testing-mat/. serving_base:/usr/local/apache2/htdocs/
