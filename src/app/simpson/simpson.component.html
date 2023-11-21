@@ -1,1 +1,126 @@
-<p>simpson works!</p>
+<div class="container">
+  <div class="row">
+    <div class="title">
+      <h1>5A</h1>
+      <h2>Daniela Espinosa Rojas</h2>
+    </div>
+
+    <div class="operation">
+      <div class="row-option">
+        <Button class="send-button simpson-button" (click)="cSimpson()"
+          ><p>Simpson</p></Button
+        >
+
+        <Button class="send-button tstudent-button" (click)="cTstudent()"
+          ><p>T student</p></Button
+        >
+      </div>
+
+      <div class="row-option">
+        <h3 *ngIf="tipo"><strong>Simpson</strong></h3>
+        <h3 *ngIf="!tipo"><strong>Tstudent</strong></h3>
+      </div>
+
+      <div class="row-option">
+        <h3>fx</h3>
+        <div class="opciones">
+          <input
+            id="fx"
+            [(ngModel)]="fx"
+            type="text"
+            class="menu"
+            placeholder="fX"
+          />
+        </div>
+      </div>
+
+      <div *ngIf="!tipo" class="row-option">
+        <h3>Dof</h3>
+        <div class="opciones">
+          <input
+            id="dof"
+            [(ngModel)]="dof"
+            type="number"
+            class="menu"
+            placeholder="dof"
+          />
+        </div>
+      </div>
+
+      <div class="row-option">
+        <h3>x0</h3>
+        <div class="opciones">
+          <input
+            id="x0"
+            [(ngModel)]="x0"
+            type="number"
+            class="menu"
+            placeholder="x0"
+          />
+        </div>
+      </div>
+
+      <div class="row-option">
+        <h3>x1</h3>
+        <div class="opciones">
+          <input
+            id="x1"
+            [(ngModel)]="x1"
+            type="number"
+            class="menu"
+            placeholder="x1"
+          />
+        </div>
+      </div>
+
+      <div class="row-option">
+        <h3>seg</h3>
+        <div class="opciones">
+          <input
+            id="seg"
+            [(ngModel)]="seg"
+            type="number"
+            class="menu"
+            placeholder="seg"
+          />
+        </div>
+      </div>
+
+      <div class="row-option">
+        <h3>error</h3>
+        <div class="opciones">
+          <input
+            id="error"
+            [(ngModel)]="error"
+            type="number"
+            class="menu"
+            placeholder="error"
+          />
+        </div>
+      </div>
+
+      <br />
+      <br />
+      <div class="row-option">
+        <div class="text-button">
+          <Button class="send-button calcular-button" (click)="agregar()"
+            ><p>Calcular</p></Button
+          >
+        </div>
+        <div class="text-button">
+          <h4>Resultado</h4>
+          <div class="resultados">
+            <input
+              id="result"
+              [(ngModel)]="result"
+              type="text"
+              class="menu"
+              placeholder="result"
+              [disabled]="true"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

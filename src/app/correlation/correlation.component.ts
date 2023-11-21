@@ -185,6 +185,7 @@ export class CorrelationComponent implements OnInit {
   r1="resultado";
   r2="resultado";
   r3="resultado";
+  calculo=0;
   agregar() {
     const numbers = JSON.parse(this.x);
     const isValidArray =
@@ -220,6 +221,7 @@ export class CorrelationComponent implements OnInit {
     this.result2 = this.calculateRCuadrada();
     this.r1 = "r";
     this.r2 = "r cuadrada";
+    this.showR3 = false;
   }
 
   regresion() {
@@ -232,7 +234,7 @@ export class CorrelationComponent implements OnInit {
     this.handleDataResponse(this.data);
     this.result = this.calculateB1();
     this.result2 = this.calculateB0();
-    this.result3 = this.calculateY(1);
+    this.result3 = this.calculateY(this.calculo);
     this.r1 = "b1";
     this.r2 = "b0";
     this.r3 = "y";
