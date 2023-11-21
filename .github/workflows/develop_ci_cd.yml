@@ -1,9 +1,9 @@
 name: release_ci_cd
 on: 
   push:
-    branches: [ "release"]
+    branches: [ "develop"]
   pull_request:
-    branches: [ "release"]
+    branches: [ "develop"]
 jobs:
   release_ci_cd:
     runs-on: ubuntu-latest
