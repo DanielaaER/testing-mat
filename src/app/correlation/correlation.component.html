@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
       <div class="title">
-        <h1>2A</h1>
+        <h1>3A</h1>
         <h2>Daniela Espinosa Rojas</h2>
       </div>
       <div class="operation">
@@ -43,6 +43,28 @@
         </div>
   
         <h3 class="x1">{{ myx1 }}</h3>
+
+
+        
+        <h3 *ngIf="!showR3">Calculo</h3>
+        <h3 *ngIf="showR3">Prediccion</h3>
+  
+        <div class="row-option">
+          <div class="opciones">
+            <input
+              id="calculo"
+              [(ngModel)]="calculo"
+              type="text"
+              class="menu"
+              placeholder="calculo"
+            />
+          </div>
+          
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
   
         <div class="row-option">
           <div class="text-button">
