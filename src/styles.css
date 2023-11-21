@@ -98,6 +98,19 @@ p {
   height: 50px;
 }
 
+
+.opciones-menu{
+  display: flex;
+  padding: 3.841px 12.363px 11.522px 12.363px;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 10px;
+  border: 0.96px solid #bdbdbd;
+  background: #fff;
+  width: 45%;
+  /* height: 50px; */
+}
+
 .resultados {
     display: flex;
     padding: 3.841px 12.363px 11.522px 12.363px;
