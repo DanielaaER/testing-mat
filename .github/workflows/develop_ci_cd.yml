@@ -27,7 +27,9 @@ jobs:
       - name: download, run httpd image, container name serving_base
         run: |
           docker run -d --name serving_base httpd
-          
+      - name: List contents of dist directory
+        run: |
+          ls -l dist/testing-mat/
       - name: Copy React build to container
         run: |
          docker cp dist/testing-mat/. serving_base:/usr/local/apache2/htdocs/
