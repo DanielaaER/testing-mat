@@ -1,1 +1,105 @@
-<p>correlation works!</p>
+<div class="container">
+    <div class="row">
+      <div class="title">
+        <h1>2A</h1>
+        <h2>Daniela Espinosa Rojas</h2>
+      </div>
+      <div class="operation">
+        <h3><strong>Calcular</strong></h3>
+        <h3>X</h3>
+  
+        <div class="row-option">
+          <div class="opciones">
+            <input
+              id="x"
+              [(ngModel)]="x"
+              type="text"
+              class="menu"
+              placeholder="X"
+            />
+          </div>
+          <Button class="send-button agregar-button" (click)="agregar()"
+            ><p>Agregar</p></Button
+          >
+        </div>
+  
+        <h3 class="x">{{ myx }}</h3>
+  
+        <h3>X1</h3>
+  
+        <div class="row-option">
+          <div class="opciones">
+            <input
+              id="x1"
+              [(ngModel)]="x1"
+              type="text"
+              class="menu"
+              placeholder="X1"
+            />
+          </div>
+          <Button class="send-button agregarx1-button" (click)="agregarx1()"
+            ><p>Agregar</p></Button
+          >
+        </div>
+  
+        <h3 class="x1">{{ myx1 }}</h3>
+  
+        <div class="row-option">
+          <div class="text-button">
+            <Button class="send-button correlacion-button" (click)="correlacion()"
+              ><p>Correlacion</p></Button
+            >
+  
+            <br />
+  
+            <Button class="send-button regresion-button" (click)="regresion()"
+              ><p>Regresion</p></Button
+            >
+          </div>
+          <div class="text-button">
+            <h4>{{r1}}</h4>
+            <div class="resultados">
+              <input
+                id="result"
+                [(ngModel)]="result"
+                type="text"
+                class="menu"
+                placeholder="result"
+                [disabled]="true"
+              />
+            </div>
+
+            <h4>{{r2}}</h4>
+            <div class="resultados">
+              <input
+                id="result2"
+                [(ngModel)]="result2"
+                type="text"
+                class="menu"
+                placeholder="result2"
+                [disabled]="true"
+              />
+            </div>
+
+
+            <h4 *ngIf="showR3">{{r3}}</h4>
+            <div *ngIf="showR3" class="resultados">
+              <input
+                id="result3"
+                [(ngModel)]="result3"
+                type="text"
+                class="menu"
+                placeholder="result3"
+                [disabled]="true"
+              />
+            </div>
+            
+
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  

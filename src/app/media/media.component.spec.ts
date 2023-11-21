@@ -53,7 +53,7 @@ describe('MediaComponent', () => {
   //INPPUT 1
 
   describe('INPUT', () => {
-    it('Should set x1 model through ngModel', async () => {
+    it('Should set x model through ngModel', async () => {
       // Arrange
       await fixture.whenStable();
       fixture.detectChanges();
